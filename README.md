@@ -104,7 +104,7 @@ See the documentation comments for more information on the relevant classes and 
 Testing
 -------
 
-Hakawai includes an almost-comprehensive unit test suite for the main text view powered by the [Specta and Expecta libraries](https://github.com/specta/specta). We hope to have test coverage for the abstraction layer and mentions plug-in in the future, although unit tests are probably not sufficient for testing these components. 
+Hakawai includes an almost-comprehensive unit test suite for the main text view powered by the [Specta and Expecta libraries](https://github.com/specta/specta). We hope to have test coverage for the abstraction layer and mentions plug-in in the future, although unit tests are probably not sufficient for testing these components.
 
 
 Contributions
@@ -129,4 +129,4 @@ According to Wikipedia, "In Māori mythology, [...] Hakawai is a monstrous bird 
 Copyright & License
 -------------------
 
-Hakawai © 2015 LinkedIn Corp. Licensed under the terms of the Apache License, Version 2.0.
+Hakawai © 2019 LinkedIn Corp. Licensed under the terms of the Apache License, Version 2.0.
