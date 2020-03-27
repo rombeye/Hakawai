@@ -113,23 +113,34 @@
 }
 
 - (NSLayoutConstraint *)translatedConstraintFor:(NSLayoutConstraint *)constraint originalObject:(id)original {
+    //@Alpha Apps copying identifier from original constraint to copied constraint
+    NSLayoutConstraint *newConstraint = NULL;
     if (constraint.firstItem == original) {
-        return [NSLayoutConstraint constraintWithItem:self
-                                            attribute:constraint.firstAttribute
-                                            relatedBy:constraint.relation
-                                               toItem:constraint.secondItem
-                                            attribute:constraint.secondAttribute
-                                           multiplier:constraint.multiplier
-                                             constant:constraint.constant];
+        newConstraint =  [NSLayoutConstraint constraintWithItem:self
+                                                      attribute:constraint.firstAttribute
+                                                      relatedBy:constraint.relation
+                                                         toItem:constraint.secondItem
+                                                      attribute:constraint.secondAttribute
+                                                     multiplier:constraint.multiplier
+                                                       constant:constraint.constant];
+        if (constraint.identifier != (id)[NSNull null] && constraint.identifier.length > 0) {
+            newConstraint.identifier = [NSString stringWithString:constraint.identifier];
+        }
+        return newConstraint;
     }
     else if (constraint.secondItem == original) {
-        return [NSLayoutConstraint constraintWithItem:constraint.firstItem
-                                            attribute:constraint.firstAttribute
-                                            relatedBy:constraint.relation
-                                               toItem:self
-                                            attribute:constraint.secondAttribute
-                                           multiplier:constraint.multiplier
-                                             constant:constraint.constant];
+        newConstraint =  [NSLayoutConstraint constraintWithItem:constraint.firstItem
+                                                      attribute:constraint.firstAttribute
+                                                      relatedBy:constraint.relation
+                                                         toItem:self
+                                                      attribute:constraint.secondAttribute
+                                                     multiplier:constraint.multiplier
+                                                       constant:constraint.constant];
+        if (constraint.identifier != (id)[NSNull null] && constraint.identifier.length > 0) {
+            newConstraint.identifier = [NSString stringWithString:constraint.identifier];
+        }
+        return newConstraint;
+    //!Alpha Apps
     }
     else {
         return constraint;

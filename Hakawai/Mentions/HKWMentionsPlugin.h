@@ -253,6 +253,12 @@ typedef NS_ENUM(NSInteger, HKWMentionsPluginState) {
 @property (nonatomic, weak) id<HKWMentionsDelegate> delegate;
 @property (nonatomic, weak) id<HKWMentionsStateChangeDelegate> stateChangeDelegate;
 
+//@Alpha Apps
+// moved from .m file to enable public access from swift
+@property (nonatomic, strong) NSDictionary *mentionSelectedAttributes;
+@property (nonatomic, strong) NSDictionary *mentionUnselectedAttributes;
+//!Alpha Apps
+
 /*!
  Instantiate a mentions plug-in with the specified chooser mode, no control characters, and a default search length of
  3 characters.
